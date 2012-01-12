@@ -1,8 +1,9 @@
+# Basic Perceptron using Stochastic Descent
 class Perceptron
   # List of instance variables that need accessor methods created
   attr_accessor :weights, :learning_rate, :training_set, :testing_set, :epochs
 
-  # Constructor for the Perceptron, takes training and testing files and learning rate as arguments
+  # Constructor for the Perceptron, takes training file and testing file and learning rate as arguments
   def initialize(train_file, test_file, learning_rate)
     random = Random.new(1234)
 
@@ -25,6 +26,9 @@ class Perceptron
     @epochs = 0
   end
 
+  private
+
+  # Load data from files into the array
   def load_data(file, array)
     count = 0
     File.open(file).readlines.each do | line |
@@ -39,10 +43,13 @@ class Perceptron
     end
   end
 
+  # After each training element is processed, the weights should be updated
   def update_weights
 
   end
 
+public
+  # Test the trained perceptron against the testing data.
   def test
 
   end
@@ -50,6 +57,15 @@ class Perceptron
   # Training takes an optional duration argument for # of epochs to train.
   def train (duration = nil)
     #unless duration.nil?
+    0.upto(duration) do | i |
+      (@training_set[0]+@training_set[8]).each do | x |
+        sum = 0
+        x.each_with_index do | y, i |
+          sum += (y * @weights[i])
+        end
+        
+      end
+    end
   end
 
 end

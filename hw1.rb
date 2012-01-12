@@ -5,4 +5,4 @@ learning_rate = ARGV[3] || 0.2
 require 'Perceptron'
 
 p = Perceptron.new(train, test, learning_rate)
-p.
+p.train(10)
